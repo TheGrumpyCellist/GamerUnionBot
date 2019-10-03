@@ -40,6 +40,10 @@ client.on('message', (msg) => {
 	addons.forEach((addon) => {
 		if (addon.message) addon.message(client, msg);
 	});
+	
+	if (message.author.id == 250809865767878657) {
+		message.channel.send("Shut up no one loves you");
+	}
 });
 
 client.on('messageUpdate', (oldmsg, newmsg) => {
