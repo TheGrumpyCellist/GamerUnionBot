@@ -16,6 +16,7 @@ require('fs').readdirSync(normalizedPath).forEach(function(file) {
 const guildId = process.env.GUILD_ID;
 const giveRoleName = process.env.GIVE_ROLE_NAME;
 const removeRoleName = process.env.REMOVE_ROLE_NAME;
+const prefix = "!"
 
 addons.forEach((addon) => {
 	if (addon.init) addon.init(client);
@@ -40,6 +41,10 @@ client.on('message', (msg) => {
 	addons.forEach((addon) => {
 		if (addon.message) addon.message(client, msg);
 	});
+	
+	if (message == ""+prefix+"greet") {
+		return "Guten tooten!";
+	}
 });
 
 client.on('messageUpdate', (oldmsg, newmsg) => {
