@@ -38,6 +38,12 @@ client.on('message', (msg) => {
 	if (msg.author.bot == true) {
 		return;
 	}
+	
+	if (msg.content.startsWith("I'm") {
+	    	msgArray = msg.content.split(" ");
+		adjective = msgArray[1];
+		msg.channel.send(`Hi ${adjective}, I'm dad!`);
+	}
 
 	addons.forEach((addon) => {
 		if (addon.message) addon.message(client, msg);
