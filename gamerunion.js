@@ -38,6 +38,21 @@ client.on('message', (msg) => {
 	if (msg.author.bot == true) {
 		return;
 	}
+	
+	let messageArray = msg.content.split(" ");
+	let cmd = messageArray[0];
+	let args = messageArray.slice(1);
+	
+	if (cmd.toUpperCase() === "I'M" || cmd.toUpperCase() === "IM") {
+        	let adjective;
+        	if (args.length === 1) {
+            		adjective = messageArray[1];
+        	}
+        	else if (args.length > 1) {
+            		adjective = args.join(" ");
+        	}
+        	message.channel.send(`Hi ${adjective}, I'm dad!`);
+    	}
 
 	addons.forEach((addon) => {
 		if (addon.message) addon.message(client, msg);
